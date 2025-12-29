@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder - Fresher Placement Ready</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Resume Builder</h1>
+            <p class="subtitle">Create your placement-ready resume</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Form Section -->
+            <div class="form-section">
+                <form id="resumeForm">
+                    <!-- Personal Information -->
+                    <section class="form-group">
+                        <h2>Personal Information</h2>
+                        <div class="form-row">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" placeholder="YOUR NAME">
+                        </div>
+                        <div class="form-row">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" placeholder="yourname@email.com">
+                        </div>
+                        <div class="form-row">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" placeholder="+91 XXXXXXXXXX">
+                        </div>
+                        <div class="form-row">
+                            <label for="location">Location</label>
+                            <input type="text" id="location" placeholder="City, State">
+                        </div>
+                        <div class="form-row">
+                            <label for="linkedin">LinkedIn</label>
+                            <input type="text" id="linkedin" placeholder="linkedin.com/in/your-profile">
+                        </div>
+                    </section>
+
+                    <!-- Objective -->
+                    <section class="form-group">
+                        <h2>Objective / Professional Summary</h2>
+                        <div class="form-row">
+                            <label for="objective">Summary (3-4 lines)</label>
+                            <textarea id="objective" rows="4" placeholder="A motivated fresher seeking opportunities to apply technical skills..."></textarea>
+                        </div>
+                    </section>
+
+                    <!-- Education -->
+                    <section class="form-group">
+                        <h2>Education</h2>
+                        <div id="educationContainer">
+                            <div class="education-entry">
+                                <div class="form-row">
+                                    <label>Degree / Class</label>
+                                    <input type="text" class="education-degree" placeholder="B.Tech Computer Science">
+                                </div>
+                                <div class="form-row">
+                                    <label>Institution</label>
+                                    <input type="text" class="education-institution" placeholder="University Name">
+                                </div>
+                                <div class="form-row form-row-inline">
+                                    <div>
+                                        <label>Duration</label>
+                                        <input type="text" class="education-duration" placeholder="2020 - 2024">
+                                    </div>
+                                    <div>
+                                        <label>Score</label>
+                                        <input type="text" class="education-score" placeholder="8.5 CGPA">
+                                    </div>
+                                </div>
+                                <button type="button" class="btn-remove" onclick="removeEducation(this)" style="display: none;">Remove</button>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-add" onclick="addEducation()">+ Add Education</button>
+                    </section>
+
+                    <!-- Technical Skills -->
+                    <section class="form-group">
+                        <h2>Technical Skills</h2>
+                        <div class="form-row">
+                            <label for="skillsLanguages">Languages</label>
+                            <input type="text" id="skillsLanguages" placeholder="Java, Python, C++">
+                        </div>
+                        <div class="form-row">
+                            <label for="skillsTools">Tools / Technologies</label>
+                            <input type="text" id="skillsTools" placeholder="Git, VS Code, MySQL">
+                        </div>
+                        <div class="form-row">
+                            <label for="skillsSubjects">Core Subjects</label>
+                            <input type="text" id="skillsSubjects" placeholder="Data Structures, Algorithms, DBMS">
+                        </div>
+                        <div class="form-row">
+                            <label for="skillsSoft">Soft Skills</label>
+                            <input type="text" id="skillsSoft" placeholder="Communication, Teamwork, Problem Solving">
+                        </div>
+                    </section>
+
+                    <!-- Experience -->
+                    <section class="form-group">
+                        <h2>Experience (Optional)</h2>
+                        <div class="form-row">
+                            <label for="experience">Internships / Part-time Work</label>
+                            <textarea id="experience" rows="4" placeholder="Internship at Company Name (Month Year - Month Year)&#10;• Description of work done"></textarea>
+                        </div>
+                    </section>
+
+                    <!-- Projects -->
+                    <section class="form-group">
+                        <h2>Projects</h2>
+                        <div id="projectsContainer">
+                            <div class="project-entry">
+                                <div class="form-row">
+                                    <label>Project Title</label>
+                                    <input type="text" class="project-title" placeholder="Project Name">
+                                </div>
+                                <div class="form-row">
+                                    <label>Description (one per line, use • for bullets)</label>
+                                    <textarea class="project-description" rows="3" placeholder="• Feature 1&#10;• Feature 2&#10;• Technology used"></textarea>
+                                </div>
+                                <button type="button" class="btn-remove" onclick="removeProject(this)" style="display: none;">Remove</button>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-add" onclick="addProject()">+ Add Project</button>
+                    </section>
+
+                    <!-- Certifications -->
+                    <section class="form-group">
+                        <h2>Certifications</h2>
+                        <div class="form-row">
+                            <label for="certifications">Certifications (one per line)</label>
+                            <textarea id="certifications" rows="4" placeholder="Certification Name - Issuing Organization (Year)"></textarea>
+                        </div>
+                    </section>
+
+                    <!-- Interests -->
+                    <section class="form-group">
+                        <h2>Interests</h2>
+                        <div class="form-row">
+                            <label for="interests">Interests</label>
+                            <input type="text" id="interests" placeholder="Reading, Coding, Sports">
+                        </div>
+                    </section>
+
+                    <!-- Declaration -->
+                    <section class="form-group">
+                        <h2>Declaration</h2>
+                        <div class="form-row">
+                            <label for="declarationPlace">Place</label>
+                            <input type="text" id="declarationPlace" placeholder="City, State">
+                        </div>
+                        <div class="form-row">
+                            <label>Declaration Text</label>
+                            <textarea id="declaration" rows="3" readonly>I hereby declare that the information provided above is true and correct to the best of my knowledge and belief.</textarea>
+                        </div>
+                    </section>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn-primary" onclick="printResume()">Print / Save as PDF</button>
+                        <button type="button" class="btn-secondary" onclick="clearForm()">Clear Form</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Resume Preview Section -->
+            <div class="resume-section">
+                <div class="resume-preview" id="resumePreview">
+                    <div class="resume-header">
+                        <h1 id="previewName">YOUR NAME</h1>
+                        <div class="contact-info" id="previewContact">
+                            <span id="previewEmail">yourname@email.com</span> | 
+                            <span id="previewPhone">+91 XXXXXXXXXX</span> | 
+                            <span id="previewLocation">City, State</span> | 
+                            <span id="previewLinkedIn">linkedin.com/in/your-profile</span>
+                        </div>
+                    </div>
+
+                    <div class="resume-content">
+                        <!-- Objective -->
+                        <section class="resume-section-item">
+                            <h2 class="section-title">Objective</h2>
+                            <p id="previewObjective" class="section-content">A motivated fresher seeking opportunities to apply technical skills...</p>
+                        </section>
+
+                        <!-- Education -->
+                        <section class="resume-section-item">
+                            <h2 class="section-title">Education</h2>
+                            <div id="previewEducation" class="section-content">
+                                <div class="education-item">
+                                    <div class="education-header">
+                                        <strong>B.Tech Computer Science</strong>
+                                        <span class="education-duration">2020 - 2024</span>
+                                    </div>
+                                    <div>University Name</div>
+                                    <div>Score: 8.5 CGPA</div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Technical Skills -->
+                        <section class="resume-section-item">
+                            <h2 class="section-title">Technical Skills</h2>
+                            <div id="previewSkills" class="section-content">
+                                <div><strong>Languages:</strong> <span id="previewSkillsLanguages">-</span></div>
+                                <div><strong>Tools / Technologies:</strong> <span id="previewSkillsTools">-</span></div>
+                                <div><strong>Core Subjects:</strong> <span id="previewSkillsSubjects">-</span></div>
+                                <div><strong>Soft Skills:</strong> <span id="previewSkillsSoft">-</span></div>
+                            </div>
+                        </section>
+
+                        <!-- Experience -->
+                        <section class="resume-section-item" id="previewExperienceSection" style="display: none;">
+                            <h2 class="section-title">Experience</h2>
+                            <div id="previewExperience" class="section-content"></div>
+                        </section>
+
+                        <!-- Projects -->
+                        <section class="resume-section-item">
+                            <h2 class="section-title">Projects</h2>
+                            <div id="previewProjects" class="section-content">
+                                <div class="project-item">
+                                    <strong>Project Name</strong>
+                                    <ul>
+                                        <li>Feature 1</li>
+                                        <li>Feature 2</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Certifications -->
+                        <section class="resume-section-item" id="previewCertificationsSection" style="display: none;">
+                            <h2 class="section-title">Certifications</h2>
+                            <div id="previewCertifications" class="section-content"></div>
+                        </section>
+
+                        <!-- Interests -->
+                        <section class="resume-section-item" id="previewInterestsSection" style="display: none;">
+                            <h2 class="section-title">Interests</h2>
+                            <div id="previewInterests" class="section-content">-</div>
+                        </section>
+
+                        <!-- Declaration -->
+                        <section class="resume-section-item">
+                            <h2 class="section-title">Declaration</h2>
+                            <div id="previewDeclaration" class="section-content">
+                                <p>I hereby declare that the information provided above is true and correct to the best of my knowledge and belief.</p>
+                                <div class="declaration-signature">
+                                    <div>Place: <span id="previewDeclarationPlace">City, State</span></div>
+                                    <div>Date: <span id="previewDeclarationDate"></span></div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
